@@ -18,7 +18,6 @@ function GithubSearch() {
       setError('User not found...')
     }
   }
-
   return (
     <div className="github-search">
       <h1> Github Profile Search </h1>
@@ -32,16 +31,19 @@ function GithubSearch() {
       </form>
 
       {
-        error ? <h3 className="user-error">User not found... </h3> :
-          profile && (
-            <div className="profile-card">
-              <img src={profile.avatar_url} alt={profile.login} />
-              <h2>{profile.name}</h2>
-              <p>{profile.bio}</p>
-              <p>Followers: {profile.followers} | Following: {profile.following}</p>  
-              <a href={profile.html_url} target="_blank" rel="noreferrer"> View Profile on GitHub </a>
-            </div>
-          )
+        error && <h3 className="user-error">User not found... </h3>   
+      }
+      {
+        profile && (
+          <div className="profile-card">
+            <img className="profile-avatar" src={profile.avatar_url} alt="Avatar" />
+            <h2 className="profile-username">{profile.name}</h2>
+            <p className="profile-bio">{profile.bio}</p>
+            <p className="profile-followers">Followers: {profile.followers}</p>
+            <p className="profile-following">Following: {profile.following}</p>
+            <a className="profile-link" href={profile.html_url} target="_blank" rel="noopener noreferrer"> View Profile on GitHub </a>
+          </div>
+        )
       }
 
 

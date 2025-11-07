@@ -1,13 +1,12 @@
 
 import './App.css'
-import GithubSearch from './components/GithubSearch'
+import MainPage from './components/MainPage'
 
 function App() {
 
   return (
     <>
-      <h1>Github User Search</h1>
-      <GithubSearch />
+     <MainPage />
     </>
   )
 }

@@ -1,12 +1,17 @@
+import { useState } from "react"
 
 function GithubSearch() {
+  const [username, setUsername] = useState("")
   return (
     <div className="github-search">
         <h1> Github Profile Search </h1>
-        <div className="search-bar">
-          <input type="text" placeholder="Enter Github username" />
-          <button> Search </button>
-        </div>
+        <form className="search-bar">
+          <input 
+            value={username} onChange={(e) => setUsername(e.target.value)}
+            type="text" placeholder="Enter Github username..."
+          />
+          <button type="submit" className="search-btn"> Search </button>
+        </form>
 
     </div>
   )

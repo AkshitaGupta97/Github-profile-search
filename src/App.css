@@ -31,7 +31,7 @@ input:focus {
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 input::placeholder {
-    color: #999;
+    color: #e6e0e0;
     font-style: italic;
     font-weight: 600;
     letter-spacing: 1px;
@@ -51,4 +51,9 @@ button {
 }
 .search-btn:hover {
     background-color: #275ab3;
+}
+.user-error {
+    color: rgb(252, 135, 93);
+    margin-top: 20px;
+    font-weight: bold;
 }

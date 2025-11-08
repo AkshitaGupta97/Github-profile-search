@@ -11,7 +11,7 @@ function GithubSearch() {
     try {
       const response = await axios.get(`https://api.github.com/users/${username}`);
       setProfile(response.data);
-      error(null)
+      setError(null)
     }
     catch (error) {
       setProfile(null);
@@ -20,7 +20,7 @@ function GithubSearch() {
   }
   return (
     <div className="github-search">
-      <h1> Github Profile Search </h1>
+      <p className="header"> Github Profile Search </p>
       <form onSubmit={handleSubmit}
         className="search-bar">
         <input
@@ -39,8 +39,9 @@ function GithubSearch() {
             <img className="profile-avatar" src={profile.avatar_url} alt="Avatar" />
             <h2 className="profile-username">{profile.name}</h2>
             <p className="profile-bio">{profile.bio}</p>
-            <p className="profile-followers">Followers: {profile.followers}</p>
-            <p className="profile-following">Following: {profile.following}</p>
+            <p className="profile-date">Joined: {new Date(profile.created_at).toLocaleDateString()}</p>
+            <p className="profile-followers">Followers: <span>{profile.followers}</span></p>
+            <p className="profile-following">Following: <span>{profile.following}</span></p>
             <a className="profile-link" href={profile.html_url} target="_blank" rel="noopener noreferrer"> View Profile on GitHub </a>
           </div>
         )

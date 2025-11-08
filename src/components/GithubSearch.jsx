@@ -36,12 +36,18 @@ function GithubSearch() {
       {
         profile && (
           <div className="profile-card">
-            <img className="profile-avatar" src={profile.avatar_url} alt="Avatar" />
-            <h2 className="profile-username">{profile.name}</h2>
-            <p className="profile-bio">{profile.bio}</p>
-            <p className="profile-date">Joined: {new Date(profile.created_at).toLocaleDateString()}</p>
-            <p className="profile-followers">Followers: <span>{profile.followers}</span></p>
-            <p className="profile-following">Following: <span>{profile.following}</span></p>
+              <div className="profile-content">
+                <div className="profile-header">
+                  <img className="profile-avatar" src={profile.avatar_url} alt="Avatar" />
+                  <h2 className="profile-username">{profile.name}</h2>
+                </div>
+                <div className="profile-details">
+                  <p className="profile-bio">{profile.bio}</p>
+                  <p className="profile-date">Joined: {new Date(profile.created_at).toLocaleDateString()}</p>
+                  <p className="profile-followers">Followers: <span>{profile.followers}</span></p>
+                  <p className="profile-following">Following: <span>{profile.following}</span></p>
+                </div>
+              </div>
             <a className="profile-link" href={profile.html_url} target="_blank" rel="noopener noreferrer"> View Profile on GitHub </a>
           </div>
         )
